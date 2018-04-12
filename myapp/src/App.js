@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Elements from './Elements';
+import OnScreen from './OnScreen';
 import ButtonsAndInput from './ButtonsAndInput';
 
 class App extends Component {
@@ -86,7 +86,7 @@ class App extends Component {
     render() {
       return (
         <div>
-          <Elements onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} Add={this.addItem}/>
+          <OnScreen onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} Add={this.addItem}/>
           <ButtonsAndInput nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} />
         </div>
       );
