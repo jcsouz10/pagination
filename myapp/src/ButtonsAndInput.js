@@ -5,6 +5,6 @@ export default props =>(
       <input onChange={props.getValueInput}></input>
       <button onClick={props.previousPage}> Previous </button>
       <button onClick={props.nextPage}> Next </button>
-      <button onClick={props.Add}> Add </button>
+      <button onClick={props.addItem}> Add </button>
     </div>
 )

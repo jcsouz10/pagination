@@ -86,8 +86,8 @@ class App extends Component {
     render() {
       return (
         <div>
-          <OnScreen onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} Add={this.addItem}/>
-          <ButtonsAndInput nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} />
+          <OnScreen onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
+          <ButtonsAndInput nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} addItem={this.addItem}/>
         </div>
       );
     }
