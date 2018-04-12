@@ -26,6 +26,9 @@ class App extends Component {
       input: "",
       filtered: peoples,
       teste: '',
+      validate: '',
+      newValue:'',
+      currency: '',
     };
   } 
 
@@ -39,28 +42,25 @@ class App extends Component {
     const { peoples } = this.state;
     this.setState({
       filtered: peoples.filter(item =>item.name.includes(inputValue)),currentPage:0});
-      const Oi = this.state.filtered.map(item=>item.name);
-      if(Oi.length<=0){
-        alert('Você está adicionando um nome')
+     
+      if(this.state.filtered <=0){
+        this.setState({validate: "Você vai adicionar um nome"})
       }
-    }
+      if( inputValue.length === 0){
+        this.setState({validate: ''})
+        console.log(inputValue.length)
+      }
+      }
     
     elementsOnScreen = () => {
-      const {elementsPerPage, currentPage, filtered} = this.state;
+      const { currentPage, filtered} = this.state;
       return filtered
         .map((item) => <li key={item.id}> {item.name} <button onClick={() => this.remove(item.name)}> Delete </button> </li>)
-        .slice(currentPage*elementsPerPage, currentPage*elementsPerPage + elementsPerPage);
-      
-      if(this.state.filtered.length < 1){
-        this.setState({currentPage: this.state.currentPage - 1})
-      }
+        .slice(currentPage*this.state.elementsPerPage, currentPage*this.state.elementsPerPage + this.state.elementsPerPage);
+        
     }
     
     remove = (id) => {
-      console.log(this.state.filtered.length)
-      if(this.state.filtered.length < 0){
-        this.setState({currentPange: this.state.currenPage - 1})
-      }
       this.setState({filtered: this.state.filtered.filter(item => item.name !== id) })
     }
     
@@ -70,6 +70,7 @@ class App extends Component {
         if ((currentPage+1) * elementsPerPage < filtered.length){
           this.setState({ currentPage: this.state.currentPage + 1 });
         }
+        console.log(this.state.elementsPerPage)
     }
     
     previousPage = () => {
@@ -78,16 +79,34 @@ class App extends Component {
           this.setState({ currentPage: this.state.currentPage - 1 });
         }
     }
+
     addItem = () =>{
-      const inValue = {id:0 ,name: this.state.input}
-      this.setState({filtered: this.state.filtered.concat(inValue), currentPage: 0, inputValue: ''})
+      const inValue = {id:99,name: this.state.input}
+      this.setState({filtered: this.state.peoples.concat(inValue), currentPage: 0, inputValue: '', validate: ''})
+      console.log(this.state.peoples)
     }
-    
+
+    restorePage = () => {
+      this.setState({
+        currentPage:0, filtered: this.state.peoples
+      })
+    }
+
+    handleChange(event) {
+      this.setState({elementsPerPage: event.target.value, currentPage:0});
+
+      console.log(this.state.elementsPerPage)
+    }
+  
     render() {
       return (
         <div>
-          <OnScreen onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
-          <ButtonsAndInput nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} addItem={this.addItem}/>
+          <select onChange={this.handleChange.bind(this)}>
+            <option value="4" >4</option>
+            <option value="10" >10</option> 
+          </select>
+          <OnScreen validate={this.state.validate} onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
+          <ButtonsAndInput restorePage={this.restorePage} nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} addItem={this.addItem}/>
         </div>
       );
     }
