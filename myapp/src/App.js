@@ -75,7 +75,7 @@ class App extends Component {
     previousPage = () => {
       const { currentPage } = this.state;
         if(currentPage - 1 >= 0){
-        this.setState({ currentPage: this.state.currentPage - 1 });
+          this.setState({ currentPage: this.state.currentPage - 1 });
         }
     }
     addItem = () =>{
