@@ -57,7 +57,6 @@ class App extends Component {
       return filtered
         .map((item) => <li key={item.id}> {item.name} <button onClick={() => this.remove(item.name)}> Delete </button> </li>)
         .slice(currentPage*this.state.elementsPerPage, currentPage*this.state.elementsPerPage + this.state.elementsPerPage);
-        
     }
     
     remove = (id) => {
@@ -66,8 +65,8 @@ class App extends Component {
     
     nextPage = () => {
       console.log(this.state.filtered)
-      const {elementsPerPage, currentPage, filtered} = this.state;
-        if ((currentPage+1) * elementsPerPage < filtered.length){
+      const {currentPage, filtered} = this.state;
+        if ((currentPage+1) * this.state.elementsPerPage < filtered.length){
           this.setState({ currentPage: this.state.currentPage + 1 });
         }
         console.log(this.state.elementsPerPage)
@@ -93,20 +92,17 @@ class App extends Component {
     }
 
     handleChange(event) {
-      this.setState({elementsPerPage: event.target.value, currentPage:0});
+      const value = event.target.value;
+      this.setState({elementsPerPage: value, currentPage:0});
 
-      console.log(this.state.elementsPerPage)
+      console.log(this.state.newValueInput)
     }
   
     render() {
       return (
         <div>
-          <select onChange={this.handleChange.bind(this)}>
-            <option value="4" >4</option>
-            <option value="10" >10</option> 
-          </select>
           <OnScreen validate={this.state.validate} onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
-          <ButtonsAndInput restorePage={this.restorePage} nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} addItem={this.addItem}/>
+          <ButtonsAndInput hadle={this.handleChange.bind(this)} restorePage={this.restorePage} nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.getValueInput} addItem={this.addItem}/>
         </div>
       );
     }
