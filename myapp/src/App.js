@@ -6,23 +6,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const peoples = [{ id: 0, name: "Jean" },
-    { id: 1, name: "Jaquinha" },
-    { id: 2, name: "Ricardo" },
-    { id: 3, name: "JaCA" },
-    { id: 4, name: "Letiiicia" },
-    { id: 5, name: "Dai" },
-    { id: 6, name: "Da iIIane" },
-    { id: 7, name: "Tamy" },
-    { id: 8, name: "Tamyresss" },
-    { id: 9, name: "Tamyres" },
-    { id: 10, name: "Abeu" },
-    { id: 11, name: "Abellll" }];
-
     this.state = {
       elementsPerPage: 3,
       currentPage: 0,
-      peoples,
+      peoples:[],
       input: "",
       filtered: peoples,
       teste: '',
