@@ -14,7 +14,7 @@ app.get('/people', (req, res) => {
     { id: 8, name: "Tamyresss" },
     { id: 9, name: "Tamyres" },
     { id: 10, name: "Abeu" },
-    { id: 11, name: "Abellll" }];
+    { id: 11, name: "Abellll" }]
 )
 });
 

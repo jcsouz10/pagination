@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OnScreen from './OnScreen';
 import ButtonsAndInput from './ButtonsAndInput';
+const axios = require("axios");
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends Component {
     this.state = {
       elementsPerPage: 3,
       currentPage: 0,
-      peoples:[],
+      peoples: [],
       input: "",
       filtered: peoples,
       teste: '',
@@ -17,6 +18,11 @@ class App extends Component {
       newValue: '',
       currency: '',
     };
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:9000/people").then(res => {
+      this.setState({peoples: res.data})})
   }
 
   filterNames = (input) => {
