@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getNames } from './api';
 import OnScreen from './OnScreen';
 import ButtonsAndInput from './ButtonsAndInput';
 const axios = require("axios");
@@ -6,26 +7,26 @@ const axios = require("axios");
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
 
     this.state = {
       elementsPerPage: 3,
       currentPage: 0,
       input: "",
-      peoples:[],
+      peoples: [],
       filtered: [],
       validate: '',
     };
   }
 
-  componentDidMount() {
-    axios.get('http://127.0.0.1:80/people').then(response => {
-      this.setState({peoples: response.data});
-      console.log(this.state.peoples)
-      this.setState({filtered: this.state.peoples})
-  }).catch(e => {
-      console.log(e.response);
-  });
+componentDidMount() {
+    getNames().then(res => {
+        this.setState({ peoples: res.data })
+        this.setState({filtered: this.state.peoples})
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
 
   filterNames = (input) => {
