@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { getNames } from './api';
+import { getPeople } from './api';
 import OnScreen from './OnScreen';
 import ButtonsAndInput from './ButtonsAndInput';
-const axios = require("axios");
 
 class App extends Component {
   constructor(props) {
     super(props);
-
 
     this.state = {
       elementsPerPage: 3,
@@ -16,14 +14,15 @@ class App extends Component {
       peoples: [],
       filtered: [],
       validate: '',
+      country: '',
     };
   }
 
-componentDidMount() {
-    getNames().then(res => {
-        this.setState({ peoples: res.data })
-        this.setState({filtered: this.state.peoples})
-      })
+  componentDidMount() {
+    getPeople().then(res => {
+      this.setState({ peoples: res.data })
+      this.setState({ filtered: this.state.peoples })
+    })
       .catch(error => {
         console.log(error)
       });
@@ -38,12 +37,17 @@ componentDidMount() {
   elementsOnScreen = () => {
     const { currentPage, filtered } = this.state;
     return filtered
-      .map((item) => <li key={item.id}> {item.name} <button onClick={() => this.remove(item.name)}> Delete </button> </li>)
+      .map((item) => <li key={item.id}> {item.name} <button onClick={() => this.remove(item.name)}> Delete </button> <button onClick={() => this.about(item.country, item.age)}> About </button> </li>)
       .slice(currentPage * this.state.elementsPerPage, currentPage * this.state.elementsPerPage + this.state.elementsPerPage);
   }
 
+  about = (coun, age) => {
+   alert("• Country: "+coun +"\n• Age: "+age );
+    }
+
   remove = (id) => {
-    this.setState({ filtered: this.state.filtered.filter(item => item.name !== id) })
+    this.setState({ filtered: this.state.filtered.filter(item => item.name !== id), currentPage: 0 })
+    console.log(id)
   }
 
   nextPage = () => {

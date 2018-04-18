@@ -1,7 +1,7 @@
 const axios = require ("axios");
 
 
-export function getNames(){
+export function getPeople(){
   return axios.get('http://127.0.0.1:9000/people')
 }
 
