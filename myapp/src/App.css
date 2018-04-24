@@ -1,18 +1,19 @@
 .AllApp{
+  background: #B3E2E3;
   max-width: 500px;
-  min-height: 00px;
+  min-height: 600px;
   margin: 0 auto;
   display: flex;
-  border: 1px solid #ccc;
 	justify-content: center;
   flex-direction: column;
+  border: double 2px
 }
 
 .item {
   margin: 5px;
   padding: 0 10px;
   border-style: dotted;
-  background: blue;
+  background: #F9A5A1;
   text-align: center;
   font-size: 1.5em;
 }
@@ -21,22 +22,35 @@
   background-color:#ddd;
   display:flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;  
+  justify-content: space-around;
+  flex-direction: column;
+  
 }
 
 .ButtonsAndInput{
-  flex-wrap: wrap;  
+  text-align: center;
 }
 
 .buttonDelete {
-  background-color:red; 
-  border: none;
+  background-color:#EE403D; 
+  border-radius: 7px;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.buttonAbout {
+  background-color:#279FC4; 
+  border-radius: 7px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -52,14 +66,64 @@
   font-size: 1.5em;
 }
 
-.buttonAbout {
-  background-color:green; 
+
+.itemInput{
+  	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	box-shadow: 1px 1px 2px #333333;	
+	-moz-box-shadow: 1px 1px 2px #333333;
+	-webkit-box-shadow: 1px 1px 2px #333333;
+	background: #cccccc; 
+	border:1px solid #000000;
+  width:300px;
+  height:30px
+
+}
+.itemAdd {
+  background-color:red; 
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.itemPrevious {
+  border-radius: 30px;  
+  background-color:red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.itemNext {
+  border-radius: 30px;  
+  background-color:red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.itemRestore {
+  border-radius: 30px;  
+  background-color:red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
