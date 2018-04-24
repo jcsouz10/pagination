@@ -1,14 +1,66 @@
+.AllApp{
+  max-width: 500px;
+  min-height: 00px;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid #ccc;
+	justify-content: center;
+  flex-direction: column;
+}
 
-.OnScreen{
-  background-color :blue;
+.item {
+  margin: 5px;
+  padding: 0 10px;
+  border-style: dotted;
+  background: blue;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.menu{
+  background-color:#ddd;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;  
 }
 
 .ButtonsAndInput{
-  background-color :yellow;
+  flex-wrap: wrap;  
 }
 
+.buttonDelete {
+  background-color:red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.validate{
+  margin: 5px;
+  padding: 0 10px;
+  color:white;
+  border-style: dotted;
+  background: black;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.buttonAbout {
+  background-color:green; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

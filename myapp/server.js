@@ -2,6 +2,8 @@ var express = require('express')
 var cors = require('cors')
 var app = express()
 
+app.use(cors({credentials: true, origin: true}))
+
 app.get('/people', cors(), function (req, res, next) {
   res.json([
     {
@@ -60,6 +62,10 @@ app.get('/people', cors(), function (req, res, next) {
     }
   ])
 })
+
+app.delete('/people/id', function (req, res) {
+  res.send('DELETE request to homepage');
+});
 
 app.listen(9000, function () {
   console.log('The server is running in the port 9000')
