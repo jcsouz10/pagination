@@ -3,6 +3,7 @@ import { getPeople } from './api';
 import OnScreen from './OnScreen';
 import ButtonsAndInput from './ButtonsAndInput';
 import './App.css'
+const axios = require ("axios");
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class App extends Component {
     .catch(error => {
       console.log(error)
     });
+
+    
   }
 
   filterNames = (input) => {
@@ -63,8 +66,17 @@ class App extends Component {
   }
   
   addItem = () => {
-    const inValue = { id: 99, name: this.state.input }
-    this.setState({ filtered: this.state.peoples.concat(inValue), currentPage: 0, inputValue: '', validate: '' })
+    axios.post('http://localhost:3000/people',{
+      name: this.state.input,
+      id: 334434
+    }).then(function(response){
+      this.setState({filtered: response.data})
+    }).catch(function(error){
+      console.log(error)
+    })
+    this.setState({
+      currentPage: 0, filtered: this.state.peoples
+    })
   }
   
   
@@ -73,6 +85,8 @@ class App extends Component {
       currentPage: 0, filtered: this.state.peoples
     })
   }  
+
+ 
 
   render() {
     return (
