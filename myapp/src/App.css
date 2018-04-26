@@ -1,12 +1,63 @@
-.AllApp{
-  background: #B3E2E3;
-  max-width: 500px;
-  min-height: 600px;
-  margin: 0 auto;
+.divPai{
   display: flex;
-	justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
+}
+
+.item2{
+  margin: 30px;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
+}
+
+.input2{
+  border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	box-shadow: 1px 1px 2px #333333;	
+	-moz-box-shadow: 1px 1px 2px #333333;
+	-webkit-box-shadow: 1px 1px 2px #333333;
+	background: #cccccc; 
+	border:1px solid #000000;
+  width:300px;
+  height:30px
+}
+
+.buttonAdd{
+  background-color:brown; 
+  border-radius: 7px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.add{  
+  text-align: center;
+  background: #B3E2E3;
+  width: 450px;
+  height: 600px;
+  margin: 0 auto;
   border: double 2px
+}
+
+.Names{
+  background: #B3E2E3;
+  width: 500px;
+  height: 593px;
+  margin: 0 auto;
+  border: double 2px
+}
+
+.menu{
+  background-color:#ddd;
+  text-align: center;
+}
+
+body{
+  background: blue;
 }
 
 .item {
@@ -15,16 +66,6 @@
   border-style: dotted;
   background: #F9A5A1;
   text-align: center;
-  font-size: 1.5em;
-}
-
-.menu{
-  background-color:#ddd;
-  display:flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  
 }
 
 .ButtonsAndInput{
@@ -65,7 +106,6 @@
   text-align: center;
   font-size: 1.5em;
 }
-
 
 .itemInput{
   	border-radius:4px;

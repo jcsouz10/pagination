@@ -84,8 +84,9 @@ class App extends Component {
       currentPage: 0, filtered: this.state.peoples
     })
 
-    window.location.reload(3);
-
+    setTimeout(function(){
+      window.location.reload(1);
+   }, 100);
   }
 
 
@@ -102,12 +103,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="AllApp">
-        <button onClick={this.testeK}> Oi </button>
-        <OnScreen validate={this.state.validate} onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
+      <div className='divPai'>
+        <div className='add'> 
+          <h1> ADD PERSON </h1> 
+          <div className='item2'> Name:  <input className='input2'/> </div>
+          <div className='item2'> Country:  <input className='input2'/> </div>
+          <div className='item2'> City:  <input className='input2'/> </div>
+          <div className='item2'> Age:  <input className='input2'/> </div>
+          <button className='buttonAdd'> ADD </button>
+        </div>
+        <div className='Names'>
+          <OnScreen validate={this.state.validate} onChangeElements={this.elementsOnScreen()} currentPage={this.state.currentPage} />
         <div className="menu">
           <h1> Options </h1>
           <ButtonsAndInput restorePage={this.restorePage} nextPage={this.nextPage} previousPage={this.previousPage} getValueInput={this.filterNames} addItem={this.addItem} />
+        </div>
         </div>
       </div>
     );
