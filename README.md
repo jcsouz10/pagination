@@ -1,4 +1,4 @@
 # pagination
 
-Used CSS3(FlexBox) React, React-Router.
+Used CSS3(FlexBox) and React
 
